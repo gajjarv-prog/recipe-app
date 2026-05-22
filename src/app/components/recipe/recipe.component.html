@@ -1,0 +1,26 @@
+<div *ngIf="recipe" class="recipe-card">
+  <img [src]="recipe.image" alt="{{ recipe.name || 'Recipe image' }}" title="{{ recipe.name || 'Recipe image' }}" class="recipe-img" />
+
+  <h1>{{ recipe.name }}</h1>
+  <p *ngIf="recipe.description">{{ recipe.description }}</p>
+
+  <div class="recipe-meta">
+    <span>🍽 Cuisine: {{ recipe.cuisine }}</span>
+    <span>📊 Difficulty: {{ recipe.difficulty }}</span>
+    <span>⏱ Prep: {{ recipe.prepTimeMinutes }} min</span>
+    <span>🔥 Cook: {{ recipe.cookTimeMinutes }} min</span>
+    <span>👤 Servings: {{ recipe.servings }}</span>
+    <span>🔥 Calories: {{ recipe.caloriesPerServing }} kcal</span>
+    <span>⭐ Rating: {{ recipe.rating }}</span>
+  </div>
+
+  <h2>Ingredients</h2>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+  </ul>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li *ngFor="let step of recipe.instructions">{{ step }}</li>
+  </ol>
+</div>
